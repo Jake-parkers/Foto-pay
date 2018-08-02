@@ -23,7 +23,7 @@ class PayService{
 						console.log("GOT HERE");
 						Promise.all([
 							this.saveOTP(otp,response['data']['customer']['email']),
-							card.sendOTP(response['data']['customer']['phone'], otp.token),
+							card.sendOTP(response['data']['customer']['email'], otp.token),
 							this.saveTransactionDetails(response['data']['flwRef'], response['data']['customer']['email'])
 						]).then(response => {
 								resolve(message);

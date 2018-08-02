@@ -4,12 +4,21 @@ const forge    = require('node-forge');
 const utf8     = require('utf8');
 const request = require('request-promise-native');
 const md5 = require('md5');
+const nodemailer = require('nodemailer');
+var transporter = nodemailer.createTransport({
+	service: 'gmail',
+	auth: {
+		   user: process.env.gmailAccount,
+		   pass: process.env.gmailPassword
+	   }
+});
+const mailOptions = {
+	from: process.env.gmailAccount,
+	to: '',
+	subject: "",
+	html: ''
+  };
 
-// const Nexmo = require('nexmo');
-// const nexmo = new Nexmo({
-//   apiKey: process.env.NEXMO_API_KEY,
-//   apiSecret: process.env.NEXMO_API_SECRET
-// });
 
 var twilio = require('twilio');
 var client = new twilio(process.env.accountSid, process.env.authToken);
@@ -112,22 +121,34 @@ class Rave {
 
 	}
 
-	sendOTP(phonenumber, otp) {
-		sendOptions.to = "+234"+phonenumber.replace(phonenumber[0],"");
-		sendOptions.text = otp;
+	sendOTP(email, otp) {
+		let mail_option = Object.assign({},mailOptions);
+		mail_option.to = email;
+		mail_option.subject = "Transaction OTP";
+		mail_option.html = "<p> Use this pin to validate your transaction <b>"+otp+"</b></p>";
 		return new Promise((resolve, reject) => {
-			client.messages.create({
-					body: sendOptions.text,
-					to: sendOptions.to,  // Text this number
-					from: sendOptions.from // From a valid Twilio number
-			})
-			.then((message) => {
-				resolve(`OTP sent to ${phonenumber}`)
-			})
-			.catch(error => {
-				reject(error);
-			})
+			transporter.sendMail(mail_option, function (err, info) {
+				if(err)
+					reject(err);
+				else
+					resolve(`OTP sent to ${email}`)
+			 });
 		});
+		// sendOptions.to = "+234"+phonenumber.replace(phonenumber[0],"");
+		// sendOptions.text = otp;
+		// return new Promise((resolve, reject) => {
+		// 	client.messages.create({
+		// 			body: sendOptions.text,
+		// 			to: sendOptions.to,  // Text this number
+		// 			from: sendOptions.from // From a valid Twilio number
+		// 	})
+		// 	.then((message) => {
+		// 		resolve(`OTP sent to ${phonenumber}`)
+		// 	})
+		// 	.catch(error => {
+		// 		reject(error);
+		// 	})
+		// });
 	}
 	
 }

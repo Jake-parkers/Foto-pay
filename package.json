@@ -1,5 +1,5 @@
 {
-  "name": "Foto-pay",
+  "name": "flutterwave",
   "version": "0.0.1",
   "description": "Foto-pay api",
   "main": "index.js",
@@ -20,6 +20,7 @@
     "md5": "^2.2.1",
     "morgan": "^1.9.0",
     "node-forge": "^0.7.5",
+    "nodemailer": "^4.6.7",
     "otp.js": "^1.1.0",
     "request": "^2.87.0",
     "request-promise-native": "^1.0.5",
