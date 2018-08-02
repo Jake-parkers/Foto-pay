@@ -23,4 +23,6 @@ DEMO
 
 A simple demo is can be tested at https://foto-pay.herokuapp.com/
 
+NOTE: I'm sending the OTP by mail instead of to user phone number because of sms charges
+
 The demo uses this api to interact with rave for card payments
