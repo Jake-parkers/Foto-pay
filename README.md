@@ -1,11 +1,11 @@
 # Foto-pay
 A simple payment concept integrating Flutterwave's Rave api
 
-Getting Started
+GETTING STARTED
 
 A simple library to interact directly with Rave api was created and is contained in libraries/ravepay.js
 
-Testing
+TESTING
 
 All tests are contained in the test/ folder. 
 
@@ -18,3 +18,9 @@ npm test
 once this test is passed, comment out the first two tests and uncomment the last test and follow the instructions in the comment then run:
 
 ‘npm test’ again
+
+DEMO
+
+A simple demo is can be tested at https://foto-pay.herokuapp.com/
+
+The demo uses this api to interact with rave for card payments
