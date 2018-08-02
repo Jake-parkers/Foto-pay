@@ -23,6 +23,14 @@ DEMO
 
 A simple demo is can be tested at https://foto-pay.herokuapp.com/
 
+Please use the following values for the form:
+
+card number: 5399838383838381
+
+expiry date: 10/22
+
+cvv: 470
+
 NOTE: I'm sending the OTP by mail instead of to user phone number because of sms charges
 
 The demo uses this api to interact with rave for card payments
