@@ -5,6 +5,12 @@ GETTING STARTED
 
 A simple library to interact directly with Rave api was created and is contained in libraries/ravepay.js
 
+Simply clone this respository 
+
+Then do 'npm install' to install all necessary dependencies
+
+Finally do 'npm start' to run the server
+
 TESTING
 
 All tests are contained in the test/ folder. 
@@ -17,7 +23,7 @@ npm test
 
 once this test is passed, comment out the first two tests and uncomment the last test and follow the instructions in the comment then run:
 
-‘npm test’ again
+'npm test' again
 
 DEMO
 
