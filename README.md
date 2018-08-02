@@ -1,5 +1,5 @@
 # Foto-pay
-A simple payment concept integrating Flutterwave's Rave api
+A simple api integrating Flutterwave's Rave api(written in nodejs)
 
 GETTING STARTED
 
